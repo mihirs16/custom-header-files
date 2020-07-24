@@ -5,8 +5,14 @@ using namespace std;
 
 int main () {
     struct node *new_header = create_ll(10);
+
+    // cout << new_header -> data;
+
+    push_ll (new_header, 20);
+    push_ll (new_header, 30);
+    push_ll (new_header, 40);
+    print_ll (new_header);
     
-    cout<<new_header->data;
     new_header = NULL;
     
     return 0;
