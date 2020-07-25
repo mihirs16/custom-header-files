@@ -43,6 +43,26 @@ bool push_ll (struct node *start, int new_data) {
     return true;
 }
 
+// Delete a node from the end of the linked list
+bool pop_ll (struct node *start) {
+    struct node *ptr_node;
+    ptr_node = start;
+
+    if (start == NULL) {
+        printf ("linked-list::NULL");
+        return false;
+    }
+
+    while (ptr_node -> next -> next != NULL) {
+        ptr_node = ptr_node -> next;
+    }
+
+    free(ptr_node -> next);
+    ptr_node -> next = NULL;
+    
+    return true;
+}
+
 // Print a full linked list
 bool print_ll (struct node *start) {
     struct node *temp;
@@ -58,7 +78,7 @@ bool print_ll (struct node *start) {
         printf (", ");
         temp = temp -> next;
     }
-    printf ("\b\b]");
+    printf ("\b\b]\n");
     temp = NULL;
     return true;
 }
