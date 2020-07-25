@@ -30,9 +30,8 @@ int main(int argc, char** argv)
         string runCMD = "." + pathToCompile + "\\" + fileToCompile + ".exe";
 
         cout << "compiling::" << pathToCompile + "\\" + fileToCompile + ".cpp" << endl;
-        cout << "running::" << pathToCompile + "\\" + fileToCompile + ".exe" << endl;
-
         system ((compileCMD).c_str());
+        cout << "running::" << pathToCompile + "\\" + fileToCompile + ".exe" << endl;
         system ((runCMD).c_str());
     }
 
