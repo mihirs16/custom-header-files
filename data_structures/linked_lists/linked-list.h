@@ -148,6 +148,19 @@ bool delete_ll (struct node *start) {
     return true;
 }
 
+int length_ll (struct node *start) {
+    struct node *temp;
+    int length = 0;
+
+    temp = start;
+    while (temp -> next != NULL) {
+        length = length + 1;
+        temp = temp -> next;
+    }
+
+    return length + 1;
+}
+
 // Print a full linked list
 bool print_ll (struct node *start) {
     struct node *temp;
