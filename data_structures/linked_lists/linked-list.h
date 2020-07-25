@@ -40,6 +40,7 @@ bool push_ll (struct node *start, int new_data) {
     ptr_node -> next = new_node;
 
     ptr_node = NULL;
+    free (ptr_node);
     return true;
 }
 
@@ -49,7 +50,7 @@ bool pop_ll (struct node *start) {
     ptr_node = start;
 
     if (start == NULL) {
-        printf ("linked-list::NULL");
+        printf ("linked-list::NULL\n");
         return false;
     }
 
@@ -60,6 +61,60 @@ bool pop_ll (struct node *start) {
     free(ptr_node -> next);
     ptr_node -> next = NULL;
     
+    ptr_node = NULL;
+    free (ptr_node);
+    return true;
+}
+
+// Insert a node after a given position
+bool insertAfter_ll (struct node *start, int posAfter, int new_data) {
+    struct node *temp, *new_node;
+    temp = start;
+
+    for (int i = 0; i < posAfter; i++) {
+        if (temp -> next == NULL) {
+            printf ("linked-list::specified position out of bounds\n");
+            return false;
+        } else {
+            temp = temp -> next;
+        }
+    }
+    
+    new_node = (struct node *) malloc (sizeof(struct node));
+    new_node -> data = new_data;
+    new_node -> next = temp -> next;
+    temp -> next = new_node;
+
+    temp = NULL;
+    free (temp);
+    new_node = NULL;
+    free (new_node);
+    return true;
+}
+
+// Insert a node before a given position
+bool insertBefore_ll (struct node *start, int posBefore, int new_data) {
+    struct node *temp, *new_node;
+    temp = start;
+
+    for (int i = 0; i < posBefore - 1; i++) {
+        if (temp -> next == NULL) {
+            printf ("linked-list::specified position out of bounds\n");
+            return false;
+        } else {
+            temp = temp -> next;
+        }
+    }
+    
+    new_node = (struct node *) malloc (sizeof(struct node));
+    new_node -> data = new_data;
+    new_node -> next = temp -> next;
+    temp -> next = new_node;
+
+    temp = NULL;
+    free (temp);
+    new_node = NULL;
+    free (new_node);
     return true;
 }
 
@@ -69,7 +124,7 @@ bool print_ll (struct node *start) {
     temp = start;
 
     if (start == NULL) {
-        printf ("linked-list::NULL");
+        printf ("linked-list::NULL\n");
     }
 
     printf ("[");
@@ -79,6 +134,8 @@ bool print_ll (struct node *start) {
         temp = temp -> next;
     }
     printf ("\b\b]\n");
+
     temp = NULL;
+    free (temp);
     return true;
 }
