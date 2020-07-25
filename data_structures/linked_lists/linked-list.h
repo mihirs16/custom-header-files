@@ -118,6 +118,36 @@ bool insertBefore_ll (struct node *start, int posBefore, int new_data) {
     return true;
 }
 
+bool deleteAt_ll (struct node *start, int pos) {
+    struct node *ptr_node, *toDel;
+    ptr_node = start;
+
+    for (int i = 0; i < pos - 1; i++) {
+        if (ptr_node -> next == NULL) {
+            printf ("linked-list::specified position out of bounds\n");
+            return false;
+        } else {
+            ptr_node = ptr_node -> next;
+        }
+    }
+
+    toDel = ptr_node -> next;
+    ptr_node -> next = toDel -> next;
+    toDel = NULL;
+    free (toDel);
+    ptr_node = NULL;
+    free (ptr_node);
+    return true;
+}
+
+bool delete_ll (struct node *start) {
+    while (start -> next != NULL) {
+        pop_ll (start);
+    }
+
+    return true;
+}
+
 // Print a full linked list
 bool print_ll (struct node *start) {
     struct node *temp;
