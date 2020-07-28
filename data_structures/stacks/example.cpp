@@ -17,15 +17,18 @@ void test_expValidate () {
 }
 
 void test_infixToPrefix () {
-    char exp[20];
+    char exp[50] = "(A-(B/C+D%E*F)/G)*H)";
 
-    cout << "Expression: "; 
-    cin.getline(exp, 20);
+    infixToPrefix (exp, exp);
+    // cout << "Expression: "; 
+    // cin.getline(exp, 20);
+
+
 }
 
 int main () {
 
-    test_expValidate ();
+    // test_expValidate ();
     test_infixToPrefix ();
 
     return 0;
