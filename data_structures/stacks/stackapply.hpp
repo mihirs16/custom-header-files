@@ -1,13 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stack>
+#include <string.h>
 
-using namespace std;
-
-int main () {
-    stack <char> s;
-    char exp[20];
-
-    cout << "Expression: "; 
-    cin.getline(exp, 20);
+bool expValidate (char exp[20]) {
+    std::stack <char> s;
 
     for (int i = 0; exp[i] != '\0'; i++) {
         if (exp[i] == '(' || exp[i] == '[' || exp[i] == '{') {
@@ -22,9 +18,10 @@ int main () {
         }
     }
 
-    if (s.size() > 0) {
-        cout << "Invalid Expression\n";
-    } else {
-        cout << "Valid Expression\n";
-    }
+    return (s.size () > 0 ? false : true);
+}
+
+bool infixToPrefix (char infix[20], char postfix[20]) {
+    
+    return true;
 }
