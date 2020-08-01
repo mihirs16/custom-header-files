@@ -4,10 +4,10 @@
 using namespace std;
 
 void test_expValidate () {
-    char exp[20];
+    char exp[50];
 
     cout << "Expression: "; 
-    cin.getline(exp, 20);
+    cin.getline(exp, 50);
 
     if (expValidate (exp)) {
         cout << "Valid Expression";
@@ -17,13 +17,16 @@ void test_expValidate () {
 }
 
 void test_infixToPrefix () {
-    char exp[50] = "(A-(B/C+D%E*F)/G)*H)";
+    char exp[50];
+    char outExp[50];
 
-    infixToPrefix (exp, exp);
-    // cout << "Expression: "; 
-    // cin.getline(exp, 20);
-
-
+    cout << "Expression: "; 
+    cin.getline(exp, 50);
+    if (infixToPrefix (exp, outExp)) {
+        cout << outExp;
+    } else {
+        cout << "Invalid Expression";
+    }
 }
 
 int main () {
