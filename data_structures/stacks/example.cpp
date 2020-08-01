@@ -22,7 +22,7 @@ void test_infixToPrefix () {
 
     cout << "Expression: "; 
     cin.getline(exp, 50);
-    if (infixToPrefix (exp, outExp)) {
+    if (infixToPostfix (exp, outExp)) {
         cout << outExp;
     } else {
         cout << "Invalid Expression";

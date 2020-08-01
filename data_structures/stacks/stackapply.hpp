@@ -42,7 +42,7 @@ bool expValidate (char exp[]) {
     return (s.size () > 0 ? false : true);
 }
 
-bool infixToPrefix (char infix[50], char postfix[50]) {
+bool infixToPostfix (char infix[50], char postfix[50]) {
     if (expValidate (infix)) {
         char operators[] = {'+', '-', '*', '/', '%'};
         std::stack <char> stack;
