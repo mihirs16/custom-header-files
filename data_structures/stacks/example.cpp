@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// test for checking expression validity
 void test_expValidate () {
     char exp[50];
 
@@ -16,6 +17,7 @@ void test_expValidate () {
     }
 }
 
+// test for checking infix -> postfix conversion
 void test_infixToPrefix () {
     char exp[50];
     char outExp[50];

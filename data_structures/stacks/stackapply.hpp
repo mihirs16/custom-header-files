@@ -2,6 +2,7 @@
 #include <stack>
 #include <string.h>
 
+// Converting Stack -> Array
 void stackToArray (std::stack <char> stack, char array[]) {
     std::stack <char> rev;
     for (int i=0; !stack.empty (); i++) {
@@ -14,6 +15,8 @@ void stackToArray (std::stack <char> stack, char array[]) {
     }
 }
 
+
+// Finding Elements in an Array (Linear Search)
 int findIndexInArray (char arr[], char target) {
     for (int i = 0; arr[i] != '\0'; i++) {
         // std::cout << arr[i];
@@ -24,6 +27,8 @@ int findIndexInArray (char arr[], char target) {
     return -1;
 }
 
+
+// Validate a given expression
 bool expValidate (char exp[]) {
     std::stack <char> s;
 
@@ -42,6 +47,7 @@ bool expValidate (char exp[]) {
     return (s.size () > 0 ? false : true);
 }
 
+// Convert infix to postfix polish notation
 bool infixToPostfix (char infix[50], char postfix[50]) {
     if (expValidate (infix)) {
         char operators[] = {'+', '-', '*', '/', '%'};
